@@ -1,0 +1,30 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Koddlo\Cqrs\:
+        resource: '../src/'
+        exclude:
+            - '../src/Booking/Infrastructure/Doctrine/Entity/'
+            - '../src/Kernel.php'
+
+    _instanceof:
+        Koddlo\Cqrs\Shared\Application\Command\Sync\CommandHandler:
+            tags:
+                - { name: 'messenger.message_handler', bus: command.sync.bus }
+        Koddlo\Cqrs\Shared\Application\Command\Async\CommandHandler:
+            tags:
+                - { name: 'messenger.message_handler', bus: command.async.bus }
+
+    Koddlo\Cqrs\Shared\Infrastructure\Symfony\Listener\ExceptionListener:
+        arguments:
+            $environment: "%kernel.environment%"
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+
+    Koddlo\Cqrs\Shared\Infrastructure\Symfony\Request\Resolver\JsonBodyResolver:
+        tags:
+            - { name: controller.argument_value_resolver, priority: -50 }

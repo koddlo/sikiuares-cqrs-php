@@ -1,0 +1,38 @@
+framework:
+    messenger:
+        default_bus: command.sync.bus
+        buses:
+            command.sync.bus:
+                middleware:
+                    - doctrine_close_connection
+                    - doctrine_transaction
+            command.async.bus:
+                middleware:
+                    - doctrine_close_connection
+                    - doctrine_transaction
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+            symfony_serializer:
+                format: json
+                context: { }
+        transports:
+            sync:
+                dsn: 'sync://'
+            async:
+                dsn: '%env(MESSENGER_DOCTRINE_TRANSPORT_DSN)%'
+                options:
+                    queue_name: async
+                    auto_setup: false
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 2
+            failed:
+                dsn: '%env(MESSENGER_DOCTRINE_TRANSPORT_DSN)%'
+                options:
+                    queue_name: failed
+                    auto_setup: false
+        failure_transport: failed
+        routing:
+            Koddlo\Cqrs\Shared\Application\Command\Sync\Command: sync
+            Koddlo\Cqrs\Shared\Application\Command\Async\Command: async

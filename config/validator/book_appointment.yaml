@@ -1,0 +1,121 @@
+Koddlo\Cqrs\Booking\Infrastructure\Utils\Request\V1\BookAppointment:
+    properties:
+        id:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - Regex:
+                pattern: '/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i'
+                message: 'VALIDATION.INVALID_FORMAT'
+        time:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - DateTime:
+                format: 'H:i'
+                message: 'VALIDATION.INVALID_FORMAT'
+        service:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - Type:
+                type: string
+                message: 'VALIDATION.INVALID_FORMAT'
+            - Choice:
+                choices:
+                  - combo
+                  - men_haircut
+                  - boy_haircut
+                  - beard_grooming
+                  - scalp_massage
+                message: 'VALIDATION.NOT_FOUND'
+        bookerFirstName:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - Type:
+                type: string
+                message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                min: 3
+                max: 64
+                minMessage: 'VALIDATION.TOO_SHORT'
+                maxMessage: 'VALIDATION.TOO_LONG'
+        bookerLastName:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - Type:
+                type: string
+                message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                min: 3
+                max: 64
+                minMessage: 'VALIDATION.TOO_SHORT'
+                maxMessage: 'VALIDATION.TOO_LONG'
+        bookerEmail:
+            - NotBlank:
+                message: 'VALIDATION.MISSING'
+            - Email:
+                message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                min: 3
+                max: 255
+                minMessage: 'VALIDATION.TOO_SHORT'
+                maxMessage: 'VALIDATION.TOO_LONG'
+
+Koddlo\Cqrs\Booking\Infrastructure\Utils\Request\V2\BookAppointment:
+    properties:
+        id:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - Regex:
+                  pattern: '/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i'
+                  message: 'VALIDATION.INVALID_FORMAT'
+        time:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - DateTime:
+                  format: 'H:i'
+                  message: 'VALIDATION.INVALID_FORMAT'
+        service:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - Type:
+                  type: string
+                  message: 'VALIDATION.INVALID_FORMAT'
+            - Choice:
+                  choices:
+                      - combo
+                      - men_haircut
+                      - boy_haircut
+                      - beard_grooming
+                      - scalp_massage
+                  message: 'VALIDATION.NOT_FOUND'
+        bookerFirstName:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - Type:
+                  type: string
+                  message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                  min: 3
+                  max: 64
+                  minMessage: 'VALIDATION.TOO_SHORT'
+                  maxMessage: 'VALIDATION.TOO_LONG'
+        bookerLastName:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - Type:
+                  type: string
+                  message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                  min: 3
+                  max: 64
+                  minMessage: 'VALIDATION.TOO_SHORT'
+                  maxMessage: 'VALIDATION.TOO_LONG'
+        bookerEmail:
+            - NotBlank:
+                  message: 'VALIDATION.MISSING'
+            - Email:
+                  message: 'VALIDATION.INVALID_FORMAT'
+            - Length:
+                  min: 3
+                  max: 255
+                  minMessage: 'VALIDATION.TOO_SHORT'
+                  maxMessage: 'VALIDATION.TOO_LONG'

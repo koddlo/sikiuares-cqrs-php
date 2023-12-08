@@ -1,0 +1,11 @@
+shared:
+    resource:
+        path: ../src/Shared/Infrastructure/Symfony/Controller/
+        namespace: Koddlo\Cqrs\Shared\Infrastructure\Symfony\Controller
+    type: attribute
+
+booking:
+    resource:
+        path: ../src/Booking/Infrastructure/Symfony/Controller/
+        namespace: Koddlo\Cqrs\Booking\Infrastructure\Symfony\Controller
+    type: attribute

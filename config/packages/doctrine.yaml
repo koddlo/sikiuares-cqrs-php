@@ -1,0 +1,46 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        server_version: 'mariadb-10.11.2'
+        profiling_collect_backtrace: '%kernel.debug%'
+        default_table_options:
+            charset: utf8mb4
+    orm:
+        auto_generate_proxy_classes: true
+        enable_lazy_ghost_objects: true
+        report_fields_where_declared: true
+        validate_xml_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Koddlo\Cqrs\Booking:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Booking/Infrastructure/Doctrine/Entity'
+                prefix: 'Koddlo\Cqrs\Booking\Infrastructure\Doctrine\Entity'
+                alias: Koddlo\Cqrs\Booking
+
+when@test:
+    doctrine:
+        dbal:
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@prod:
+    doctrine:
+        orm:
+            auto_generate_proxy_classes: false
+            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
+            query_cache_driver:
+                type: pool
+                pool: doctrine.system_cache_pool
+            result_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system

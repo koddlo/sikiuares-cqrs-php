@@ -1,0 +1,13 @@
+includes:
+    - ./vendor/phpstan/phpstan-symfony/extension.neon
+parameters:
+    paths:
+        - ./src
+    excludePaths:
+        - ./tests
+        - ./vendor
+    ignoreErrors:
+        -
+            message: '#Cannot cast mixed to [a-z]*.#'
+            paths:
+                - *

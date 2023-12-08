@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  server:
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    container_name: 'php'
+    restart: 'on-failure'
+    tty: true
+    volumes:
+      - .:/var/www
+      - ./docker/vhost.conf:/etc/apache2/sites-enabled/000-default.conf
+    links:
+      - database
+    ports:
+      - '80:80'
+  database:
+    image: mariadb:10.11.2
+    container_name: 'database'
+    restart: 'on-failure'
+    volumes:
+      - ./docker/volumes/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 'dbname'
+      MYSQL_USER: 'koddlo'
+      MYSQL_PASSWORD: 'koddlo'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'

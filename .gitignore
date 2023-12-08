@@ -1,0 +1,13 @@
+/.env.local
+/.env.local.php
+/.env.*.local
+
+/var/
+
+/vendor/
+
+/docker/volumes/
+/public/bundles/
+
+.phpunit.result.cache
+.deptrac.cache

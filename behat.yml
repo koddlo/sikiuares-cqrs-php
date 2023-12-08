@@ -1,0 +1,19 @@
+default:
+    autoload:
+        '': '%paths.base%/tests/integration/Context/'
+    calls:
+        error_reporting: 16383
+    suites:
+        default:
+            paths: [ "%paths.base%/tests/integration/Feature/default" ]
+            contexts:
+                - Koddlo\Cqrs\Tests\Integration\Context\ApiContext
+                - Koddlo\Cqrs\Tests\Integration\Context\EmailContext
+                - Koddlo\Cqrs\Tests\Integration\Context\WorkingDayContext
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                environment: test
+                class: Koddlo\Cqrs\Kernel
+            bootstrap: tests/bootstrap.php
+        DAMA\DoctrineTestBundle\Behat\ServiceContainer\DoctrineExtension: ~
