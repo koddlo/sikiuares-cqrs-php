@@ -29,6 +29,7 @@ final class GetWorkingDayQuery implements GetWorkingDay
                 'wd.stafferId',
                 'wd.date',
                 'wd.workingHours',
+                'b.id bookingId',
                 'b.timeFrom bookingFrom',
                 'b.timeTo bookingTo',
                 'b.bookerFirstName',
@@ -48,6 +49,7 @@ final class GetWorkingDayQuery implements GetWorkingDay
          *    stafferId: string,
          *    date: DateTimeImmutable,
          *    workingHours: array<int, array{from: string, to: string}>,
+         *    bookingId: string|null,
          *    bookingFrom: DateTimeImmutable,
          *    bookingTo: DateTimeImmutable,
          *    bookerFirstName: string,
@@ -62,6 +64,10 @@ final class GetWorkingDayQuery implements GetWorkingDay
 
         $bookings = [];
         foreach ($results as $result) {
+            if ($result['bookingId'] === null) {
+                continue;
+            }
+
             $bookings[] = new BookingDTO(
                 $result['bookingFrom']->format('H:i'),
                 $result['bookingTo']->format('H:i'),
