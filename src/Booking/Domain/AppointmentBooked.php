@@ -10,9 +10,9 @@ use Koddlo\Cqrs\Shared\Domain\DomainEvent;
 
 final readonly class AppointmentBooked extends DomainEvent
 {
-    public const EVENT_VERSION = 1;
+    public const int EVENT_VERSION = 1;
 
-    public const EVENT_NAME = 'appointment_booked';
+    public const string EVENT_NAME = 'appointment_booked';
 
     /**
      * @var array{from: string, to: string}

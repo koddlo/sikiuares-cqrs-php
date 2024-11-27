@@ -5,29 +5,29 @@
     "license": "All rights reserved",
     "authors": [
         {
-          "name": "Krystian Żądło",
-          "email": "kontakt@koddlo.pl",
-          "homepage": "https://koddlo.pl",
-          "role": "Owner"
+            "name": "Krystian Żądło",
+            "email": "kontakt@koddlo.pl",
+            "homepage": "https://koddlo.pl",
+            "role": "Owner"
         }
     ],
     "type": "project",
     "minimum-stability": "stable",
     "require": {
-        "php": "8.3.*",
+        "php": "8.4.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "2.11.*",
+        "doctrine/doctrine-bundle": "2.13.*",
         "doctrine/doctrine-migrations-bundle": "3.3.*",
-        "doctrine/orm": "2.17.*",
-        "phpdocumentor/reflection-docblock": "5.3.*",
-        "phpstan/phpdoc-parser": "^1.24",
-        "phpstan/phpstan-symfony": "^1.3",
+        "doctrine/orm": "3.3.*",
+        "phpdocumentor/reflection-docblock": "5.6.*",
+        "phpstan/phpdoc-parser": "2.0.*",
+        "phpstan/phpstan-symfony": "2.0.*",
         "ramsey/uuid": "4.7.*",
         "symfony/console": "6.4.*",
         "symfony/doctrine-messenger": "6.4.*",
         "symfony/dotenv": "6.4.*",
-        "symfony/flex": "*",
+        "symfony/flex": "2.4.*",
         "symfony/framework-bundle": "6.4.*",
         "symfony/messenger": "6.4.*",
         "symfony/property-access": "6.4.*",
@@ -39,13 +39,13 @@
         "symfony/yaml": "6.4.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "10.3.*",
-        "qossmic/deptrac-shim": "1.0.*",
+        "phpunit/phpunit": "11.4.*",
+        "qossmic/deptrac": "2.0.*",
         "symfony/debug-bundle": "6.4.*",
         "symfony/web-profiler-bundle": "6.4.*",
-        "symplify/easy-coding-standard": "12.0.*",
-        "friends-of-behat/symfony-extension": "2.4.*",
-        "dama/doctrine-test-bundle": "7.1.*"
+        "symplify/easy-coding-standard": "12.3.*",
+        "friends-of-behat/symfony-extension": "2.6.*",
+        "dama/doctrine-test-bundle": "8.2.*"
     },
     "autoload": {
         "psr-4": {

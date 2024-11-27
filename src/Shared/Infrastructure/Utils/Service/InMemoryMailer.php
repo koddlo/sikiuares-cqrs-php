@@ -24,12 +24,9 @@ final class InMemoryMailer implements Mailer
 
     public function hasEmail(string $email): bool
     {
-        foreach ($this->emails as $emailDTO) {
-            if ($emailDTO->recipient === $email) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any(
+            $this->emails,
+            static fn (Email $emailDTO): bool => $emailDTO->recipient === $email
+        );
     }
 }

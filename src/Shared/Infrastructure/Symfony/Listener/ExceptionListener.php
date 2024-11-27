@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final class ExceptionListener
 {
     public function __construct(
-        private string $environment
+        private readonly string $environment
     ) {
     }
 
@@ -23,6 +23,7 @@ final class ExceptionListener
     {
         $exception = $event->getThrowable();
 
+        $content = [];
         if ($exception instanceof ValidationError) {
             $code = Response::HTTP_BAD_REQUEST;
             $content['errors'] = $exception->getErrors();
@@ -41,6 +42,6 @@ final class ExceptionListener
             }
         }
 
-        $event->setResponse(new JsonResponse($content ?? null, $code));
+        $event->setResponse(new JsonResponse($content ?: null, $code));
     }
 }

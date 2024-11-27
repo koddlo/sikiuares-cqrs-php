@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Koddlo\Cqrs\Booking\Application\Query\Result;
 
-final class Booking
+final readonly class Booking
 {
     public function __construct(
-        public readonly string $from,
-        public readonly string $to,
-        public readonly string $bookerFirstName,
-        public readonly string $bookerLastName,
-        public readonly string $bookerEmail
+        public string $from,
+        public string $to,
+        public string $bookerFirstName,
+        public string $bookerLastName,
+        public string $bookerEmail
     ) {
     }
 }

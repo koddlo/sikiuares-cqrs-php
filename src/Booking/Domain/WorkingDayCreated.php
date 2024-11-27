@@ -10,9 +10,9 @@ use Koddlo\Cqrs\Shared\Domain\DomainEvent;
 
 final readonly class WorkingDayCreated extends DomainEvent
 {
-    public const EVENT_VERSION = 1;
+    public const int EVENT_VERSION = 1;
 
-    public const EVENT_NAME = 'working_day_created';
+    public const string EVENT_NAME = 'working_day_created';
 
     public string $stafferId;
 

@@ -16,7 +16,7 @@ final class ApiContext implements Context
     private Response $response;
 
     public function __construct(
-        private KernelInterface $kernel
+        private readonly KernelInterface $kernel
     ) {
     }
 
