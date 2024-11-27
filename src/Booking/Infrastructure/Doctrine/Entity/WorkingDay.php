@@ -35,7 +35,7 @@ class WorkingDay
     /**
      * @var Collection<int|string, Booking> $bookings
      */
-    #[OneToMany(mappedBy: 'workingDay', targetEntity: Booking::class, cascade: ['persist'])]
+    #[OneToMany(targetEntity: Booking::class, mappedBy: 'workingDay', cascade: ['persist'])]
     private Collection $bookings;
 
     public function __construct(

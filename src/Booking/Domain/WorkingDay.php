@@ -119,23 +119,17 @@ final class WorkingDay extends AggregateRoot
 
     private function isDurationWithinWorkingHours(Duration $duration): bool
     {
-        foreach ($this->workingHours as $hourRange) {
-            if ($hourRange->isWithin($duration)) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any(
+            $this->workingHours,
+            static fn (Duration $hourRange): bool => $hourRange->isWithin($duration)
+        );
     }
 
     private function isAlreadyBooked(Duration $duration): bool
     {
-        foreach ($this->bookings as $booking) {
-            if ($duration->isOverlapping($booking->getDuration())) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any(
+            $this->bookings,
+            static fn (Booking $booking): bool => $duration->isOverlapping($booking->getDuration())
+        );
     }
 }

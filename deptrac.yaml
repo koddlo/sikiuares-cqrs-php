@@ -4,36 +4,36 @@ parameters:
   layers:
     - name: SharedDomain
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Shared\\Domain\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Shared\\Domain\\.*
     - name: SharedApplication
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Shared\\Application\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Shared\\Application\\.*
     - name: SharedInfrastructure
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Shared\\Infrastructure\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Shared\\Infrastructure\\.*
     - name: BookingDomain
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Booking\\Domain\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Booking\\Domain\\.*
     - name: BookingApplication
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Booking\\Application\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Booking\\Application\\.*
     - name: BookingInfrastructure
       collectors:
-        - type: className
-          regex: Koddlo\\Cqrs\\Booking\\Infrastructure\\.*
+        - type: classLike
+          value: Koddlo\\Cqrs\\Booking\\Infrastructure\\.*
     - name: Vendor
       collectors:
         - type: bool
           must_not:
-            - type: className
-              regex: Koddlo\\Cqrs\\.*
+            - type: classLike
+              value: Koddlo\\Cqrs\\.*
             - type: classNameRegex
-              regex: '#^DateTime|^LogicException$|^RuntimeException$#'
+              value: '#^DateTime|^LogicException$|^RuntimeException$#'
   ruleset:
     SharedDomain:
       - SharedDomain

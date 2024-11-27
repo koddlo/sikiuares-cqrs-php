@@ -6,17 +6,17 @@ namespace Koddlo\Cqrs\Booking\Domain;
 
 final readonly class Booker
 {
-    private const FIRST_NAME_MIN_LENGTH = 3;
+    private const int FIRST_NAME_MIN_LENGTH = 3;
 
-    private const FIRST_NAME_MAX_LENGTH = 64;
+    private const int FIRST_NAME_MAX_LENGTH = 64;
 
-    private const LAST_NAME_MIN_LENGTH = 3;
+    private const int LAST_NAME_MIN_LENGTH = 3;
 
-    private const LAST_NAME_MAX_LENGTH = 64;
+    private const int LAST_NAME_MAX_LENGTH = 64;
 
-    private const EMAIL_MIN_LENGTH = 3;
+    private const int EMAIL_MIN_LENGTH = 3;
 
-    private const EMAIL_MAX_LENGTH = 255;
+    private const int EMAIL_MAX_LENGTH = 255;
 
     private function __construct(
         private string $firstName,

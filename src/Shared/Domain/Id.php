@@ -6,7 +6,7 @@ namespace Koddlo\Cqrs\Shared\Domain;
 
 readonly class Id
 {
-    private const ID_FORMAT = '/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i';
+    private const string ID_FORMAT = '/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i';
 
     public function __construct(
         private string $id

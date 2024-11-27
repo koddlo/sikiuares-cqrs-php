@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 final class JsonBodyResolver implements ValueResolverInterface
 {
-    private const FORMAT = 'json';
+    private const string FORMAT = 'json';
 
     public function __construct(
         private SerializerInterface $serializer

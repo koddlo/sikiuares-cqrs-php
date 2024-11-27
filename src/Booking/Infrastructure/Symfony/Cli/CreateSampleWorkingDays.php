@@ -35,6 +35,7 @@ final class CreateSampleWorkingDays extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $workingDays = [];
         $workingDays[] = WorkingDay::create(
             new WorkingDayId('a21c5b8a-1685-72fb-b8a4-21b18618cb4d'),
             new StafferId('018c25b8-1cdb-72c7-ab50-2ec8a263d27b'),
