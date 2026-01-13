@@ -25,7 +25,7 @@ final class BookingController extends AbstractController
     ) {
     }
 
-    #[Route('v1/working-days/{workingDayId}/bookings', name: 'v2.working-days.bookings', methods: ['POST'])]
+    #[Route('v1/working-days/{workingDayId}/bookings', name: 'v1.working-days.bookings', methods: ['POST'])]
     public function createV1(string $workingDayId, BookAppointmentV1 $request): Response
     {
         $request->id = $workingDayId;
@@ -42,7 +42,7 @@ final class BookingController extends AbstractController
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
     }
 
-    #[Route('v2/working-days/{workingDayId}/bookings', name: 'v1.working-days.bookings', methods: ['POST'])]
+    #[Route('v2/working-days/{workingDayId}/bookings', name: 'v2.working-days.bookings', methods: ['POST'])]
     public function createV2(string $workingDayId, BookAppointmentV2 $request): Response
     {
         $request->id = $workingDayId;

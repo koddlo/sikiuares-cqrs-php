@@ -35,7 +35,7 @@ final class WorkingDayTest extends TestCase
         self::assertEquals($date, $SUT->getDate());
         self::assertSame($workingHours, $SUT->getWorkingHours());
         self::assertCount(1, $events);
-        self::assertInstanceOf(WorkingDayCreated::class, $events[0]);
+        self::assertInstanceOf(WorkingDayCreated::class, array_first($events));
     }
 
     public function testRestoreWhenDataIsValidShouldRestoreWorkingDay(): void
@@ -83,7 +83,7 @@ final class WorkingDayTest extends TestCase
 
         self::assertCount(1, $SUT->getBookings());
         self::assertCount(1, $events);
-        self::assertInstanceOf(AppointmentBooked::class, $events[0]);
+        self::assertInstanceOf(AppointmentBooked::class, array_first($events));
     }
 
     public function testBookWhenBookIsNotWithinWorkingHoursShouldThrowException(): void

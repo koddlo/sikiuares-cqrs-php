@@ -77,7 +77,7 @@ final class GetWorkingDayQuery implements GetWorkingDay
             );
         }
 
-        $result = reset($results);
+        $result = array_first($results);
 
         $workingHours = [];
         foreach ($result['workingHours'] as $workingHour) {

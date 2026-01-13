@@ -1,9 +1,10 @@
-FROM php:8.4-apache
+FROM php:8.5-apache
 
 RUN apt-get update \
-    && apt-get install -y libzip-dev zip \
+    && apt-get install -y libzip-dev libicu-dev zip \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install intl \
     && a2enmod rewrite \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

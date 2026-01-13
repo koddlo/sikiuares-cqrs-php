@@ -14,49 +14,49 @@
     "type": "project",
     "minimum-stability": "stable",
     "require": {
-        "php": "8.4.*",
+        "php": "8.5.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "2.13.*",
-        "doctrine/doctrine-migrations-bundle": "3.3.*",
-        "doctrine/orm": "3.3.*",
-        "phpdocumentor/reflection-docblock": "5.6.*",
-        "phpstan/phpdoc-parser": "2.0.*",
+        "doctrine/doctrine-bundle": "3.2.*",
+        "doctrine/doctrine-migrations-bundle": "4.0.*",
+        "doctrine/orm": "3.6.*",
+        "phpdocumentor/reflection-docblock": "5.3.*",
+        "phpstan/phpdoc-parser": "1.33.*",
         "phpstan/phpstan-symfony": "2.0.*",
-        "ramsey/uuid": "4.7.*",
-        "symfony/console": "6.4.*",
-        "symfony/doctrine-messenger": "6.4.*",
-        "symfony/dotenv": "6.4.*",
-        "symfony/flex": "2.4.*",
-        "symfony/framework-bundle": "6.4.*",
-        "symfony/messenger": "6.4.*",
-        "symfony/property-access": "6.4.*",
-        "symfony/property-info": "6.4.*",
-        "symfony/runtime": "6.4.*",
-        "symfony/serializer": "6.4.*",
-        "symfony/translation": "6.4.*",
-        "symfony/validator": "6.4.*",
-        "symfony/yaml": "6.4.*"
+        "ramsey/uuid": "4.9.*",
+        "symfony/console": "7.4.*",
+        "symfony/doctrine-messenger": "7.4.*",
+        "symfony/dotenv": "7.4.*",
+        "symfony/flex": "2.10.*",
+        "symfony/framework-bundle": "7.4.*",
+        "symfony/messenger": "7.4.*",
+        "symfony/property-access": "7.4.*",
+        "symfony/expression-language": "7.4.*",
+        "symfony/property-info": "7.4.*",
+        "symfony/runtime": "7.4.*",
+        "symfony/serializer": "7.4.*",
+        "symfony/translation": "7.4.*",
+        "symfony/validator": "7.4.*",
+        "symfony/yaml": "7.4.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "11.4.*",
-        "qossmic/deptrac": "2.0.*",
-        "symfony/debug-bundle": "6.4.*",
-        "symfony/web-profiler-bundle": "6.4.*",
-        "symplify/easy-coding-standard": "12.3.*",
+        "phpunit/phpunit": "12.5.*",
+        "deptrac/deptrac": "4.4.*",
+        "symfony/debug-bundle": "7.4.*",
+        "symfony/web-profiler-bundle": "7.4.*",
+        "symplify/easy-coding-standard": "13.0.*",
         "friends-of-behat/symfony-extension": "2.6.*",
-        "dama/doctrine-test-bundle": "8.2.*"
+        "dama/doctrine-test-bundle": "8.4.*"
     },
     "autoload": {
         "psr-4": {
             "Koddlo\\Cqrs\\": "src"
         }
-    },
+      },
     "autoload-dev": {
         "psr-4": {
             "Koddlo\\Cqrs\\Tests\\Unit\\": "tests/unit/",
             "Koddlo\\Cqrs\\Tests\\Integration\\": "tests/integration/"
-
         }
     },
     "config": {
@@ -67,7 +67,7 @@
         },
         "optimize-autoloader": true,
         "preferred-install": {
-            "*": "dist"
+           "*": "dist"
         },
         "sort-packages": true
     },
@@ -78,7 +78,10 @@
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*",
-        "symfony/polyfill-php81": "*"
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php83": "*",
+        "symfony/polyfill-php84": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -98,7 +101,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.4.*"
+            "require": "7.4.*"
         }
     }
 }

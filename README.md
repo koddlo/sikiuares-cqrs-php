@@ -34,7 +34,7 @@ docker exec php ./vendor/bin/ecs check --config ecs.php
 
 - PHPSTAN
 ```
-docker exec php ./vendor/bin/phpstan analyse -l 10 -c phpstan.neon
+docker exec php ./vendor/bin/phpstan analyse -l 10 -c phpstan.neon --memory-limit=512M
 ```
 
 - DEPTRAC

@@ -17,7 +17,9 @@ final class WorkingDay extends AggregateRoot
         private WorkingDayId $id,
         private StafferId $stafferId,
         private Date $date,
-        /** @var Duration[] $workingHours */
+        /**
+         * @var Duration[] $workingHours
+         */
         private array $workingHours
     ) {
         $this->bookings = [];
